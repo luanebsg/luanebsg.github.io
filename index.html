@@ -54,10 +54,15 @@
             <h1>Bem-vindo à PetAddicts</h1>
         </section>
 
+        <!-- Exibição de Data e Hora -->
+        <div class="container my-3 text-center">
+            <p id="date-time" class="text-muted"></p>
+        </div>
+
         <!-- Carrossel de Produtos em Destaque -->
         <div class="container my-5">
             <h2 class="text-center">Produtos em Destaque</h2>
-            <div id="carouselProdutos" class="carousel slide mx-auto" data-ride="carousel" style="max-width: 800px;">
+            <div id="carouselProdutos" class="carousel slide mx-auto" data-ride="carousel" style="max-width: 1000px;">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <img src="https://multitreco.com/cdn/shop/files/S542d95a0875c47f4921e681ec79b3443X_800x.jpg?v=1720454654" class="d-block w-100" alt="Caminha Deluxe">
@@ -124,7 +129,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <!-- Script para adicionar ao carrinho -->
+    <!-- Script para adicionar ao carrinho e exibir data e hora -->
     <script>
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
@@ -137,6 +142,12 @@
 
         function updateCartCount() {
             document.getElementById('cart-count').textContent = cart.length;
+        }
+
+        function updateDateTime() {
+            const now = new Date();
+            const dateTimeStr = now.toLocaleString('pt-BR', { dateStyle: 'full', timeStyle: 'short' });
+            document.getElementById('date-time').textContent = 'Data e Hora Atual: ' + dateTimeStr;
         }
 
         var isLoggedIn = false;
@@ -162,6 +173,8 @@
         window.onload = function() {
             checkLoginStatus();
             updateCartCount();
+            updateDateTime();
+            setInterval(updateDateTime, 60000); // Atualiza a cada minuto
         };
     </script>
 
