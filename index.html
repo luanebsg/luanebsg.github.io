@@ -7,9 +7,8 @@
     <!-- Bootstrap CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- Ícones -->
-    <!--Style-->
+    <!-- Style -->
     <link rel="stylesheet" href="CSS/index.css">
-
 </head>
 <body>
 
@@ -28,19 +27,19 @@
                     <a class="nav-link" href="HTML/produtos.html">Produtos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/HTML/agendamento.html">Agendamento</a>
+                    <a class="nav-link" href="HTML/agendamento.html">Agendamento</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/HTML/login.html" id="login-link">Login</a>
+                    <a class="nav-link" href="HTML/login.html" id="login-link">Login</a>
                 </li>
                 <li class="nav-item" id="cadastro-link">
-                    <a class="nav-link" href="/HTML/cadastro.html">Cadastro</a>
+                    <a class="nav-link" href="HTML/cadastro.html">Cadastro</a>
                 </li>
                 <li class="nav-item" id="logout-link" style="display: none;">
                     <a class="nav-link" href="#" onclick="logout()">Logout</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link cart-icon" href="/HTML/carrinho.html">
+                    <a class="nav-link cart-icon" href="HTML/carrinho.html">
                         <i class="fas fa-shopping-cart"></i>
                         <span class="badge" id="cart-count">0</span>
                     </a>
@@ -50,51 +49,46 @@
     </nav>
 
     <div class="content">
-        <!-- Banner -->
+        <!-- Banner Original -->
         <section class="banner">
             <h1>Bem-vindo à PetAddicts</h1>
         </section>
 
-        <!-- Produtos em Destaque -->
+        <!-- Carrossel de Produtos em Destaque -->
         <div class="container my-5">
-            <h2>Produtos em Destaque</h2>
-            <div class="row">
-                <!-- Produto 1 -->
-                <div class="col-md-3">
-                    <div class="product-card">
-                        <img src="https://multitreco.com/cdn/shop/files/S542d95a0875c47f4921e681ec79b3443X_800x.jpg?v=1720454654" alt="Caminha Deluxe">
-                        <div class="product-title">Caminha Deluxe</div>
-                        <div class="product-price">R$230</div>
-                        <button class="btn btn-primary" onclick="addToCart('Caminha Deluxe', 230)">Comprar</button>
+            <h2 class="text-center">Produtos em Destaque</h2>
+            <div id="carouselProdutos" class="carousel slide mx-auto" data-ride="carousel" style="max-width: 800px;">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://multitreco.com/cdn/shop/files/S542d95a0875c47f4921e681ec79b3443X_800x.jpg?v=1720454654" class="d-block w-100" alt="Caminha Deluxe">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Caminha Deluxe</h5>
+                            <p>R$230</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://http2.mlstatic.com/D_NQ_NP_956417-MLB70212223212_062023-O.webp" class="d-block w-100" alt="Engana Gato">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Engana Gato</h5>
+                            <p>R$55</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://a-static.mlcdn.com.br/450x450/pote-para-racao-e-agua-tigela-inox-300ml-para-cachorro-gato-4-unidades-western/mixthor/kit366-2/af7d32538463c14923eb2388350640b7.jpeg" class="d-block w-100" alt="Pote Inox">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Pote Inox</h5>
+                            <p>R$45</p>
+                        </div>
                     </div>
                 </div>
-                <!-- Produto 3 -->
-                <div class="col-md-3">
-                    <div class="product-card">
-                        <img src="https://http2.mlstatic.com/D_NQ_NP_956417-MLB70212223212_062023-O.webp" alt="Engana Gato">
-                        <div class="product-title">Engana Gato</div>
-                        <div class="product-price">R$55</div>
-                        <button class="btn btn-primary" onclick="addToCart('Engana Gato', 55)">Comprar</button>
-                    </div>
-                </div>
-                <!-- Produto 5 -->
-                <div class="col-md-3">
-                    <div class="product-card">
-                        <img src="https://a-static.mlcdn.com.br/450x450/pote-para-racao-e-agua-tigela-inox-300ml-para-cachorro-gato-4-unidades-western/mixthor/kit366-2/af7d32538463c14923eb2388350640b7.jpeg" alt="Pote Inox">
-                        <div class="product-title">Pote Inox</div>
-                        <div class="product-price">R$45</div>
-                        <button class="btn btn-primary" onclick="addToCart('Pote Inox', 45)">Comprar</button>
-                    </div>
-                </div>
-                <!-- Produto 8 -->
-                <div class="col-md-3">
-                    <div class="product-card">
-                        <img src="https://static-shop.vivapets.com/media/catalog/product/cache/11fc96e7318a291175a0004e054be56e/e/x/exa7620_7.jpg" alt="Sono Seguro">
-                        <div class="product-title">Sono Seguro</div>
-                        <div class="product-price">R$565</div>
-                        <button class="btn btn-primary" onclick="addToCart('Sono Seguro', 565)">Comprar</button>
-                    </div>
-                </div>
+                <a class="carousel-control-prev" href="#carouselProdutos" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Anterior</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselProdutos" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Próximo</span>
+                </a>
             </div>
         </div>
 
@@ -108,14 +102,14 @@
                 <li><i class="fas fa-syringe"></i> Vacinação</li>
                 <li><i class="fas fa-shuttle-van"></i> Tele-busca</li>
             </ul>
-            <a href="agendamento.html" class="btn btn-primary">Agendar Agora</a>
+            <a href="HTML/agendamento.html" class="btn btn-primary">Agendar Agora</a>
         </div>
 
         <!-- Seção "Nossos Produtos" -->
         <div class="container products my-5">
             <h2>Nossos Produtos</h2>
             <p>Além dos nossos serviços, também oferecemos uma variedade de produtos para atender todas as necessidades dos seus pets. Rações, brinquedos e muito mais!</p>
-            <a href="produtos.html" class="btn btn-secondary">Ver Produtos</a>
+            <a href="HTML/produtos.html" class="btn btn-secondary">Ver Produtos</a>
         </div>
     </div>
     
